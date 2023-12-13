@@ -1,16 +1,6 @@
 import numpy as np
 
-class ActivationFunction:
-     def __init__(self):
-          pass
-      
-     def forward(self, x):
-          pass
-      
-     def backward(self, x):
-          pass
-
-class Sigmoid(ActivationFunction):
+class Sigmoid:
      def __init__(self):
           pass
       
@@ -20,7 +10,7 @@ class Sigmoid(ActivationFunction):
      def backward(self, x):
           return self.forward(x) * (1 - self.forward(x))
 
-class ReLU(ActivationFunction):
+class ReLU:
      def __init__(self):
           pass
       
@@ -30,7 +20,7 @@ class ReLU(ActivationFunction):
      def backward(self, x):
           return np.where(x > 0, 1, 0)
 
-class Tanh(ActivationFunction):
+class Tanh:
      def __init__(self):
           pass
       
@@ -40,7 +30,7 @@ class Tanh(ActivationFunction):
      def backward(self, x):
           return 1 - np.square(self.forward(x))
 
-class Softmax(ActivationFunction):
+class Softmax:
      def __init__(self):
           pass
       
@@ -50,7 +40,7 @@ class Softmax(ActivationFunction):
      def backward(self, x):
           return self.forward(x) * (1 - self.forward(x))
 
-class Linear(ActivationFunction):
+class Linear:
      def __init__(self):
           pass
       
@@ -60,7 +50,7 @@ class Linear(ActivationFunction):
      def backward(self, x):
           return np.ones_like(x)
 
-class Swish(ActivationFunction):
+class Swish:
      def __init__(self):
           pass
       
@@ -70,7 +60,7 @@ class Swish(ActivationFunction):
      def backward(self, x):
           return Sigmoid().forward(x) + x * Sigmoid().backward(x)
 
-class Mish(ActivationFunction):
+class Mish:
      def __init__(self):
           pass
       
@@ -80,7 +70,7 @@ class Mish(ActivationFunction):
      def backward(self, x):
           return np.tanh(np.log(1 + np.exp(x))) + x * (1 - np.square(np.tanh(np.log(1 + np.exp(x))))) * (1 / (1 + np.exp(-x)))
 
-class Elu(ActivationFunction):
+class Elu:
      def __init__(self):
           pass
       
@@ -90,7 +80,7 @@ class Elu(ActivationFunction):
      def backward(self, x):
           return np.where(x > 0, 1, np.exp(x))
 
-class Selu(ActivationFunction):
+class Selu:
      def __init__(self):
           pass
       
@@ -104,7 +94,7 @@ class Selu(ActivationFunction):
           scale = 1.0507009873554804934193349852946
           return scale * np.where(x > 0, 1, alpha * np.exp(x))
 
-class Gelu(ActivationFunction):
+class Gelu:
      def __init__(self):
           pass
       
